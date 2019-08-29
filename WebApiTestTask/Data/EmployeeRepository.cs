@@ -85,16 +85,14 @@ namespace WebApiTestTask.Data
             if (item.Phone == null) { item.Phone = doc.Phone; };
             if (item.CompanyId == 0) { item.CompanyId = doc.CompanyId; };
             if (item.Passport == null) { item.Passport = doc.Passport; };
-            //if (item.Passport.Type == null) { item.Passport.Type = doc.Passport.Type; };
-            //if (item.Passport.Number == null) { item.Passport.Number = doc.Passport.Number; };
+            
 
             var update = Builders<Employee>.Update.Set("Name", item.Name)
                 .Set("Surname", item.Surname)
                 .Set("Phone", item.Phone)
                 .Set("CompanyId", item.CompanyId)
                 .Set("Passport", item.Passport);
-              //  .Set("Passport.Type", item.Passport.Type)
-                //.Set("Passport.Number", item.Passport.Number);
+            
 
             return await _context.Employees.UpdateOneAsync(filter, update);
              
